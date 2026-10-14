@@ -1,0 +1,30 @@
+Portfolio · Santiago Sarmiento
+================================
+
+Este proyecto contiene trabajo de terceros.
+
+Diseño y estructura originales
+------------------------------
+El diseño, la estructura de componentes y el código base de este portfolio
+fueron creados por:
+
+    Redoyanul Haque
+    https://github.com/red1-for-hek
+
+y se distribuyen bajo la licencia MIT. El aviso de copyright original se
+conserva en el archivo LICENSE y debe mantenerse en cualquier copia o
+redistribución.
+
+Contenido de terceros
+---------------------
+- three.js, react-three-fiber, three-stdlib: licencia MIT
+- GSAP y ScrollTrigger: licencia GreenSock Standard ("no charge")
+- Lenis: licencia MIT
+- Vercel Analytics y Speed Insights: licencia MIT
+- Iconos de Devicon (devicons.dev), cargados desde jsDelivr: licencia CC0-1.0
+- Fuentes Geist y las declaraciones tipográficas del tema: licencia MIT / SIL Open Font License
+
+Trabajo propio
+--------------
+El contenido, la trayectoria, el stack tecnológico y los datos personales de
+este portfolio pertenecen a Santiago Sarmiento.
