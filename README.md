@@ -1,99 +1,92 @@
-# 🚀 3D Developer Portfolio Website (React + TypeScript + Three.js)
+# Portfolio · Santiago Sarmiento
 
-[![3D portfolio preview (click to watch video)](./Screenshot_2026-04-08_22-10-00.png)](./video.mp4)
+Portfolio personal de **Santiago Sarmiento**, desarrollador y fundador de **Nexora**.
 
-A modern, high-performance **3D developer portfolio website** built with **React**, **TypeScript**, **Three.js**, **GSAP**, and **WebGL**.
-
-If you’re a developer looking for a **portfolio template** that feels premium, interactive, and memorable—this repo is for you.
-
-> Live preview: https://www.redoyanulhaque.me/
+Construido con React, TypeScript, Vite, Three.js y GSAP. Diseño original de
+[Redoyanul Haque](https://github.com/red1-for-hek), bajo licencia MIT.
 
 ---
 
-## ✨ Highlights
+## Descripción
 
-- **3D / WebGL experience** powered by **Three.js**
-- Smooth animations with **GSAP**
-- Modern **React + TypeScript** codebase
-- Fast, responsive UI (desktop + mobile)
-- Designed for developers, engineers, programmers, and creators
+Desarrollador y fundador de Nexora, enfocado en crear software, experiencias
+digitales y productos tecnológicos con una visión a largo plazo. Me interesa
+construir tecnología útil, cuidar cada detalle y entender los sistemas desde el
+código hasta su funcionamiento interno.
 
----
-
-## 🧰 Tech Stack
-
-- **React**
-- **TypeScript**
-- **Three.js / WebGL**
-- **GSAP**
-- **HTML / CSS / JavaScript**
+**Barranquilla, Colombia** · [GitHub](https://github.com/Saaarmyx) ·
+[Email](mailto:saaarmyx@gmail.com)
 
 ---
 
-## 🚀 Getting Started
+## Stack
 
-### 1) Clone
+- React 18 + TypeScript
+- Vite 5
+- Three.js / React Three Fiber (personaje 3D del hero)
+- GSAP + ScrollTrigger + Lenis (animaciones y scroll suave)
+- React Router
+- Tailwind (parcial), CSS modular por componente
+- chess.js + stockfish.js (juego de ajedrez integrado)
+
+---
+
+## Estructura
 
 ```bash
-git clone https://github.com/red1-for-hek/portfolio-website.git
-cd portfolio-website
+src/
+├── components/          # Secciones y componentes de UI
+│   ├── styles/          # CSS de cada componente
+│   ├── Character/       # Personaje 3D (three.js)
+│   └── utils/           # Split text, GSAP, cursor
+├── pages/               # Rutas (/ y /play)
+├── config.ts            # Todo el contenido editable
+├── context/             # Estado del loader
+└── data/                # Datos auxiliares
+public/                  # Imágenes, modelos 3D, vídeo
+api/chat.js              # Función serverless para el chat del ajedrez
 ```
 
-### 2) Install
+Todo el texto visible vive en `src/config.ts`. Los textos sueltos que quedaron
+en los componentes son etiquetas de interfaz (navegación, títulos de sección).
+
+---
+
+## Comandos
 
 ```bash
 npm install
-```
-
-### 3) Run locally
-
-```bash
-npm run dev
-```
-
-### 4) Build
-
-```bash
-npm run build
+npm run dev        # servidor de desarrollo
+npm run build      # build de producción en dist/
+npm run preview    # sirve el build
+npm run lint
 ```
 
 ---
 
-## 🧩 Customize (Quick Guide)
+## Despliegue
 
-Typical things you’ll want to update:
+Vercel. `vercel.json` gestiona las cabeceras de seguridad y el enrutado hacia
+`index.html`.
 
-- **Your name + hero section text**
-- **Projects list**
-- **Social links** (GitHub, LinkedIn, email)
-- **SEO meta title/description**
-
----
-
-## ⭐ Support
-
-If you found this useful:
-
-- Please **star** the repository (it helps a lot)
-- Share it with a friend who needs a portfolio template
-- Sponsor via the **Sponsor** button on GitHub (if available in your region)
+El chat del ajedrez depende de `api/chat.js`, que necesita una clave de API en
+la variable de entorno declarada en `.env.example`. Sin ella, ese chat no
+funciona; el resto del sitio no la necesita.
 
 ---
 
-## 🤝 Connect
+## Estado
 
-- LinkedIn: https://www.linkedin.com/in/red1-for-hek/
-
----
-
-## 🏷️ Recommended GitHub Topics (add in repo settings)
-
-Add these topics to improve GitHub search visibility:
-
-`portfolio` `developer-portfolio` `portfolio-website` `portfolio-template` `3d-portfolio` `react` `typescript` `threejs` `webgl` `gsap` `frontend` `vite`
+- `src/config.ts` → `projects` está vacío. Los proyectos se cargan a mano: cada
+  uno necesita `id`, `title`, `category`, `technologies`, `image`,
+  `description` y `link`.
+- Las fotografías en `public/images/` son marcadores. Sustituye
+  `mypicnbg.png` (1000x1000) y `mypic.jpeg` (1080x1480) conservando el nombre.
 
 ---
 
-## 🪪 License
+## Licencia
 
-This project is open source and available under the **MIT License**. See [LICENSE](LICENSE).
+MIT. El diseño y la estructura originales pertenecen a
+[Redoyanul Haque](https://github.com/red1-for-hek); se conserva el aviso de
+copyright en `LICENSE`.
