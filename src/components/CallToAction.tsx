@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { config } from "../config";
 import "./styles/CallToAction.css";
 
@@ -6,9 +5,13 @@ const CallToAction = () => {
   return (
     <div className="cta-section">
       <div className="cta-buttons">
-        <Link to="/play" className="cta-btn cta-btn-play" data-cursor="disable">
-          Juega conmigo →
-        </Link>
+        <a
+          href="#contact"
+          className="cta-btn cta-btn-play"
+          data-cursor="disable"
+        >
+          Hablemos →
+        </a>
 
         <a
           href={config.contact.github}
