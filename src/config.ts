@@ -1,13 +1,13 @@
 // Los proyectos se declaran a mano, no se leen de GitHub. El tipo se declara
 // aqui para que TypeScript no infiera un array vacio como never[].
 export interface Project {
-    id: number;
-    title: string;
-    category: string;
-    technologies: string;
-    image: string;
-    description: string;
-    link: string;
+  id: number
+  title: string
+  category: string
+  technologies: string
+  image: string
+  description: string
+  link: string
 }
 
 export const config = {
@@ -30,50 +30,22 @@ export const config = {
   },
   experiences: [
     {
-      position: 'Primeros pasos en desarrollo web',
+      position: 'Desarrollo multiplataforma y sistemas',
       company: 'Proyectos y autoaprendizaje',
-      period: '2022',
+      period: 'Hoy',
       location: 'Barranquilla, Colombia',
       description:
-        'Inicio en el desarrollo web aprendiendo a construir páginas desde cero con HTML y CSS, y a retocar el acabado visual con Adobe Illustrator.',
+        'Entrada al desarrollo móvil multiplataforma con Flutter y Dart, y al trabajo cercano al hardware con Rust.',
       responsibilities: [
-        'Aprender los fundamentos de HTML y CSS escribiendo código sin tutoriales guiados',
-        'Construir mis primeras páginas web y entender cómo se estructura un documento',
-        'RETOCAR y dar acabado visual a los trabajos con Adobe Illustrator',
+        'Desarrollar aplicaciones móviles con Flutter y Dart',
+        'Aprender Rust y el razonamiento de bajo nivel que exige',
+        'Integrar el desarrollo web con el móvil en un mismo criterio de trabajo',
       ],
-      technologies: ['HTML', 'CSS', 'Adobe Illustrator'],
-    },
-    {
-      position: 'Edición de vídeo y bases de JavaScript',
-      company: 'Proyectos y autoaprendizaje',
-      period: '2023',
-      location: 'Barranquilla, Colombia',
-      description:
-        'Doble salto: por un lado la edición de vídeo con Premiere Pro; por otro, los primeros pasos en JavaScript.',
-      responsibilities: [
-        'Aprender edición de vídeo con Adobe Premiere Pro',
-        'Dar los primeros pasos en JavaScript con ejercicios propios',
-        'Conectar el trabajo audiovisual con scripting para automatizar tareas de edición',
-      ],
-      technologies: ['Adobe Premiere Pro', 'JavaScript'],
-    },
-    {
-      position: 'Fundamentos de JavaScript y Python',
-      company: 'Proyectos y autoaprendizaje',
-      period: '2024',
-      location: 'Barranquilla, Colombia',
-      description:
-        'Consolidación de JavaScript y entrada a Python como segundo lenguaje para resolver problemas de lógica y automatización.',
-      responsibilities: [
-        'Consolidar las bases de JavaScript con proyectos escritos desde cero',
-        'Aprender Python aplicado a automatización y análisis',
-        'Practicar lógica y resolución de problemas con dos lenguajes distintos',
-      ],
-      technologies: ['JavaScript', 'Python'],
+      technologies: ['Flutter', 'Dart', 'Rust'],
     },
     {
       position: 'Frontend Developer',
-      company: 'Proyectos y autoaprendizaje',
+      company: 'Proyectos',
       period: '2025',
       location: 'Barranquilla, Colombia',
       description:
@@ -86,22 +58,87 @@ export const config = {
       technologies: ['React', 'Svelte', 'JavaScript', 'HTML', 'CSS'],
     },
     {
-      position: 'Desarrollo multiplataforma y sistemas',
-      company: 'Proyectos y autoaprendizaje',
-      period: '2026',
+      position: 'Fundamentos de JavaScript y Python',
+      company: 'Proyectos',
+      period: '2024',
       location: 'Barranquilla, Colombia',
       description:
-        'Entrada al desarrollo móvil multiplataforma con Flutter y Dart, y al trabajo cercano al hardware con Rust.',
+        'Consolidación de JavaScript y entrada a Python como segundo lenguaje para resolver problemas de lógica y automatización.',
       responsibilities: [
-        'Desarrollar aplicaciones móviles con Flutter y Dart',
-        'Aprender Rust y el razonamiento de bajo nivel que exige',
-        'Integrar el desarrollo web con el móvil en un mismo criterio de trabajo',
+        'Consolidar las bases de JavaScript con proyectos escritos desde cero',
+        'Aprender Python aplicado a automatización y análisis',
+        'Practicar lógica y resolución de problemas con dos lenguajes distintos',
       ],
-      technologies: ['Flutter', 'Dart', 'Rust'],
+      technologies: ['JavaScript', 'Python'],
+    },
+    {
+      position: 'Edición de vídeo y bases de JavaScript',
+      company: 'Autoaprendizaje',
+      period: '2023',
+      location: 'Barranquilla, Colombia',
+      description:
+        'Doble salto: por un lado la edición de vídeo con Premiere Pro; por otro, los primeros pasos en JavaScript.',
+      responsibilities: [
+        'Aprender edición de vídeo con Adobe Premiere Pro',
+        'Dar los primeros pasos en JavaScript con ejercicios propios',
+        'Conectar el trabajo audiovisual con scripting para automatizar tareas de edición',
+      ],
+      technologies: ['Adobe Premiere Pro', 'JavaScript'],
+    },
+    {
+      position: 'Primeros pasos en desarrollo web',
+      company: 'Autoaprendizaje',
+      period: '2022',
+      location: 'Barranquilla, Colombia',
+      description:
+        'Inicio en el desarrollo web aprendiendo a construir páginas desde cero con HTML y CSS, y a retocar el acabado visual con Adobe Illustrator.',
+      responsibilities: [
+        'Aprender los fundamentos de HTML y CSS escribiendo código sin tutoriales guiados',
+        'Construir mis primeras páginas web y entender cómo se estructura un documento',
+        'RETOCAR y dar acabado visual a los trabajos con Adobe Illustrator',
+      ],
+      technologies: ['HTML', 'CSS', 'Adobe Illustrator'],
     },
   ],
   // Pendiente de cargar. Los proyectos se declaran a mano, no se leen de GitHub.
-  projects: [] as Project[],
+  projects: [
+    {
+      id: 1,
+      title: 'Nexora',
+      category: 'Categoría',
+      technologies: 'React, Node.js, MongoDB',
+      image: '/images/nombre.png',
+      description: 'Qué hace y qué resuelve.',
+      link: 'https://github.com/Saaarmyx/...',
+    },
+    {
+      id: 2,
+      title: 'Nombre del proyecto',
+      category: 'Categoría',
+      technologies: 'React, Node.js, MongoDB',
+      image: '/images/nombre.png',
+      description: 'Qué hace y qué resuelve.',
+      link: 'https://github.com/Saaarmyx/...',
+    },
+    {
+      id: 3,
+      title: 'Nombre del proyecto',
+      category: 'Categoría',
+      technologies: 'React, Node.js, MongoDB',
+      image: '/images/nombre.png',
+      description: 'Qué hace y qué resuelve.',
+      link: 'https://github.com/Saaarmyx/...',
+    },
+    {
+      id: 4,
+      title: 'Nombre del proyecto',
+      category: 'Categoría',
+      technologies: 'React, Node.js, MongoDB',
+      image: '/images/nombre.png',
+      description: 'Qué hace y qué resuelve.',
+      link: 'https://github.com/Saaarmyx/...',
+    },
+  ] as Project[],
   contact: {
     email: 'saaarmyx@gmail.com',
     github: 'https://github.com/Saaarmyx',
