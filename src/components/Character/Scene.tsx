@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import setCharacter from "./utils/character";
 import setLighting from "./utils/lighting";
-import { useLoading } from "../../context/LoadingProvider";
 import handleResize from "./utils/resizeUtils";
 import {
   handleMouseMove,
@@ -11,15 +10,16 @@ import {
   handleTouchMove,
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
-import { setProgress } from "../Loading";
 
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef(new THREE.Scene());
-  const { setLoading } = useLoading();
 
-  const [character, setChar] = useState<THREE.Object3D | null>(null);
+  // Listeners y timers registrados dentro del efecto, para poder soltarlos al
+  // desmontar. Antes solo se limpiaba parte de ellos.
+  const introCleanup: Array<() => void> = [];
+
   useEffect(() => {
     if (canvasDiv.current) {
       let rect = canvasDiv.current.getBoundingClientRect();
@@ -51,8 +51,7 @@ const Scene = () => {
       const clock = new THREE.Clock();
 
       const light = setLighting(scene);
-      let progress = setProgress((value) => setLoading(value));
-      const { loadCharacter } = setCharacter(renderer, scene, camera);
+      const { loadCharacter } = setCharacter(camera);
 
       loadCharacter().then((gltf) => {
         if (gltf) {
@@ -60,19 +59,20 @@ const Scene = () => {
           hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
           mixer = animations.mixer;
           let character = gltf.scene;
-          setChar(character);
           scene.add(character);
           headBone = character.getObjectByName("spine006") || null;
           screenLight = character.getObjectByName("screenlight") || null;
-          progress.loaded().then(() => {
-            setTimeout(() => {
-              light.turnOnLights();
-              animations.startIntro();
-            }, 2500);
-          });
-          window.addEventListener("resize", () =>
-            handleResize(renderer, camera, canvasDiv, character)
-          );
+          const introId = setTimeout(() => {
+            light.turnOnLights();
+            animations.startIntro();
+          }, 600);
+
+          const onResize = () => handleResize(renderer, camera, canvasDiv, character);
+          window.addEventListener("resize", onResize);
+
+          // El listener de resize solo se usa en este bloque.
+          introCleanup.push(() => clearTimeout(introId));
+          introCleanup.push(() => window.removeEventListener("resize", onResize));
         }
       });
 
@@ -99,16 +99,33 @@ const Scene = () => {
         });
       };
 
-      document.addEventListener("mousemove", (event) => {
-        onMouseMove(event);
-      });
+      document.addEventListener("mousemove", onMouseMove);
+      introCleanup.push(() => document.removeEventListener("mousemove", onMouseMove));
       const landingDiv = document.getElementById("landingDiv");
       if (landingDiv) {
         landingDiv.addEventListener("touchstart", onTouchStart);
         landingDiv.addEventListener("touchend", onTouchEnd);
       }
+      // Renderizar fuera de pantalla es trabajo tirado: el loop se detiene
+      // cuando el modelo sale del viewport y vuelve cuando regresa.
+      let isVisible = true;
+      let frameId = 0;
+
+      const visibilityObserver = new IntersectionObserver(
+        ([entry]) => {
+          const wasVisible = isVisible;
+          isVisible = entry.isIntersecting;
+
+          if (isVisible && !wasVisible) {
+            frameId = requestAnimationFrame(animate);
+          }
+        },
+        { threshold: 0 }
+      );
+      visibilityObserver.observe(canvasDiv.current);
+
       const animate = () => {
-        requestAnimationFrame(animate);
+        frameId = requestAnimationFrame(animate);
         if (headBone) {
           handleHeadRotation(
             headBone,
@@ -127,18 +144,18 @@ const Scene = () => {
         renderer.render(scene, camera);
       };
       animate();
+
       return () => {
+        cancelAnimationFrame(frameId);
+        visibilityObserver.disconnect();
         clearTimeout(debounce);
+        introCleanup.forEach((cleanup) => cleanup());
         scene.clear();
         renderer.dispose();
-        window.removeEventListener("resize", () =>
-          handleResize(renderer, camera, canvasDiv, character!)
-        );
         if (canvasDiv.current) {
           canvasDiv.current.removeChild(renderer.domElement);
         }
         if (landingDiv) {
-          document.removeEventListener("mousemove", onMouseMove);
           landingDiv.removeEventListener("touchstart", onTouchStart);
           landingDiv.removeEventListener("touchend", onTouchEnd);
         }

@@ -3,11 +3,7 @@ import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
 import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll";
 import { decryptFile } from "./decrypt";
 
-const setCharacter = (
-  renderer: THREE.WebGLRenderer,
-  scene: THREE.Scene,
-  camera: THREE.PerspectiveCamera
-) => {
+const setCharacter = (camera: THREE.PerspectiveCamera) => {
   const loader = new GLTFLoader();
   const dracoLoader = new DRACOLoader();
   dracoLoader.setDecoderPath("/draco/");
@@ -25,9 +21,12 @@ const setCharacter = (
         let character: THREE.Object3D;
         loader.load(
           blobUrl,
-          async (gltf) => {
+          (gltf) => {
             character = gltf.scene;
-            await renderer.compileAsync(character, camera, scene);
+            // Antes aquí había un await renderer.compileAsync(). Bloqueaba el
+            // hilo principal durante varios segundos antes de que se viera nada.
+            // Three compila los shaders de forma perezosa en el primer render,
+            // así que se omite sin cambio visual apreciable.
             character.traverse((child: any) => {
               if (child.isMesh) {
                 const mesh = child as THREE.Mesh;
@@ -45,6 +44,8 @@ const setCharacter = (
             character!.getObjectByName("footR")!.position.y = 3.36;
             character!.getObjectByName("footL")!.position.y = 3.36;
             dracoLoader.dispose();
+            // El blob descifrado ya no hace falta: libera los 1.8 MB.
+            URL.revokeObjectURL(blobUrl);
           },
           undefined,
           (error) => {
