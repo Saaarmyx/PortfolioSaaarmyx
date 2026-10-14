@@ -82,13 +82,13 @@ const Work = () => {
               <WorkImage image={project.image} alt={project.title} link={project.link} />
             </div>
           ))}
-          {/* See All Works Button */}
+          {/* Boton de todos los trabajos */}
           <div className="work-box work-box-cta">
             <div className="see-all-works">
               <h3>¿Quieres ver más?</h3>
               <p>Explora todos mis proyectos y creaciones</p>
               <Link to="/myworks" className="see-all-btn" data-cursor="disable">
-                See All Works →
+                Ver todos →
               </Link>
             </div>
           </div>
