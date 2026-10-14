@@ -33,9 +33,8 @@ h6 {
   font-family: "Geist", sans-serif;
 }
 
-body {
-  overflow: hidden;
-}
+/* El bloqueo de scroll que usaba la pantalla de carga ya no aplica:
+   initialFX() arranca en el montaje de MainContainer. */
 
 /* Allow scrolling on mobile */
 @media only screen and (max-width: 768px) {
