@@ -1,192 +1,137 @@
+// Los proyectos se declaran a mano, no se leen de GitHub. El tipo se declara
+// aqui para que TypeScript no infiera un array vacio como never[].
+export interface Project {
+    id: number;
+    title: string;
+    category: string;
+    technologies: string;
+    image: string;
+    description: string;
+    link: string;
+}
+
 export const config = {
-    developer: {
-        name: "Redoyanul",
-        fullName: "Redoyanul Haque",
-        title: "AI & Full-Stack Developer",
-        description: "AI & Full-Stack Developer building intelligent systems and modern web applications. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
+  developer: {
+    name: 'Santiago',
+    fullName: 'Santiago Sarmiento',
+    title: 'Desarrollador y fundador de Nexora',
+    description:
+      'Desarrollador y fundador de Nexora, enfocado en crear software, experiencias digitales y productos tecnológicos con una visión a largo plazo. Me interesa construir tecnología útil, cuidar cada detalle y entender los sistemas desde el código hasta su funcionamiento interno.',
+  },
+  social: {
+    github: 'Saaarmyx',
+    email: 'saaarmyx@gmail.com',
+    location: 'Barranquilla, Colombia',
+  },
+  about: {
+    title: 'Sobre mí',
+    description:
+      'Empecé a los 13 años escribiendo HTML y CSS, y desde entonces no he dejado de construir. Hoy desarrollo software, interfaces y productos con una visión a largo plazo, trabajando con React y Svelte en el frontend, Node.js y Python en el backend, y Flutter y Dart para móvil. Me interesa construir tecnología útil, cuidar cada detalle y entender los sistemas desde el código hasta su funcionamiento interno.',
+  },
+  experiences: [
+    {
+      position: 'Primeros pasos en desarrollo web',
+      company: 'Proyectos y autoaprendizaje',
+      period: '2022',
+      location: 'Barranquilla, Colombia',
+      description:
+        'Inicio en el desarrollo web aprendiendo a construir páginas desde cero con HTML y CSS, y a retocar el acabado visual con Adobe Illustrator.',
+      responsibilities: [
+        'Aprender los fundamentos de HTML y CSS escribiendo código sin tutoriales guiados',
+        'Construir mis primeras páginas web y entender cómo se estructura un documento',
+        'RETOCAR y dar acabado visual a los trabajos con Adobe Illustrator',
+      ],
+      technologies: ['HTML', 'CSS', 'Adobe Illustrator'],
     },
-    social: {
-        github: "red1-for-hek",
-        email: "redoyanul1234@gmail.com",
-        location: "Bangladesh"
+    {
+      position: 'Edición de vídeo y bases de JavaScript',
+      company: 'Proyectos y autoaprendizaje',
+      period: '2023',
+      location: 'Barranquilla, Colombia',
+      description:
+        'Doble salto: por un lado la edición de vídeo con Premiere Pro; por otro, los primeros pasos en JavaScript.',
+      responsibilities: [
+        'Aprender edición de vídeo con Adobe Premiere Pro',
+        'Dar los primeros pasos en JavaScript con ejercicios propios',
+        'Conectar el trabajo audiovisual con scripting para automatizar tareas de edición',
+      ],
+      technologies: ['Adobe Premiere Pro', 'JavaScript'],
     },
-    about: {
-        title: "About Me",
-        description: "I am a self-taught AI & Full-Stack Developer from Bangladesh. I build intelligent systems, chatbots, and modern web applications. My expertise includes Machine Learning, Deep Learning, NLP, and Full-Stack Web Development with React, Node.js, and Python. Currently building next-gen AI Agents and JARVIS-like Personal Assistants. I have a competitive programming mindset and a deep passion for automation. Code is poetry, AI is the canvas."
+    {
+      position: 'Fundamentos de JavaScript y Python',
+      company: 'Proyectos y autoaprendizaje',
+      period: '2024',
+      location: 'Barranquilla, Colombia',
+      description:
+        'Consolidación de JavaScript y entrada a Python como segundo lenguaje para resolver problemas de lógica y automatización.',
+      responsibilities: [
+        'Consolidar las bases de JavaScript con proyectos escritos desde cero',
+        'Aprender Python aplicado a automatización y análisis',
+        'Practicar lógica y resolución de problemas con dos lenguajes distintos',
+      ],
+      technologies: ['JavaScript', 'Python'],
     },
-    experiences: [
-        {
-            position: "Learning Something New",
-            company: "Self-Development",
-            period: "2025 - Present",
-            location: "Bangladesh",
-            description: "Continuously exploring emerging technologies, researching advanced AI systems, and pushing the boundaries of what's possible in tech.",
-            responsibilities: [
-                "Researching cutting-edge AI and ML technologies",
-                "Experimenting with new frameworks and tools",
-                "Contributing to open-source projects",
-                "Building innovative personal projects"
-            ],
-            technologies: ["Research", "Innovation", "Open Source", "New Tech"]
-        },
-        {
-            position: "AI Engineer",
-            company: "Freelance & Projects",
-            period: "2025",
-            location: "Bangladesh",
-            description: "Developing intelligent AI systems, chatbots, and machine learning solutions. Building next-gen conversational AI agents and JARVIS-like personal assistants.",
-            responsibilities: [
-                "Building AI-powered chatbots and conversational agents",
-                "Developing machine learning models with TensorFlow and PyTorch",
-                "Working with LLMs and transformer architectures",
-                "Creating autonomous AI systems and automation tools"
-            ],
-            technologies: ["Python", "TensorFlow", "PyTorch", "LLMs", "NLP", "AI Agents"]
-        },
-        {
-            position: "Full-Stack Developer",
-            company: "Freelance & Projects",
-            period: "2024",
-            location: "Bangladesh",
-            description: "Built complete web applications from frontend to backend. Developed responsive UIs, RESTful APIs, and database solutions for various clients and projects.",
-            responsibilities: [
-                "Developing full-stack web applications using React and Node.js",
-                "Building RESTful APIs and integrating databases",
-                "Creating responsive and interactive user interfaces",
-                "Deploying and maintaining web applications"
-            ],
-            technologies: ["React", "Node.js", "MongoDB", "Express", "Next.js", "TypeScript"]
-        },
-        {
-            position: "Python Developer",
-            company: "Self-Taught & Projects",
-            period: "2023",
-            location: "Bangladesh",
-            description: "Dove deep into Python programming, building automation scripts, bots, and mastering the fundamentals of software development and problem-solving.",
-            responsibilities: [
-                "Learning Python programming and core concepts",
-                "Building automation scripts and Discord bots",
-                "Exploring data structures and algorithms",
-                "Participating in competitive programming"
-            ],
-            technologies: ["Python", "Automation", "Scripting", "Discord.py", "Problem Solving"]
-        },
-        {
-            position: "Graphic Designer",
-            company: "Freelance",
-            period: "2022",
-            location: "Bangladesh",
-            description: "Started my creative journey as a graphic designer, creating logos, banners, and visual content. This sparked my passion for technology and digital creation.",
-            responsibilities: [
-                "Designing logos and brand identity materials",
-                "Creating social media graphics and banners",
-                "Working with clients on creative projects",
-                "Learning design principles and visual aesthetics"
-            ],
-            technologies: ["Photoshop", "Illustrator", "Canva", "Figma", "Visual Design"]
-        },
-        {
-            position: "Microsoft Office",
-            company: "Begin Learning",
-            period: "2021",
-            location: "Bangladesh",
-            description: "Started my journey into the digital world by learning Microsoft Office tools. This foundational step introduced me to computers and sparked my curiosity for technology.",
-            responsibilities: [
-                "Learning Microsoft Word, Excel, and PowerPoint",
-                "Creating documents and presentations",
-                "Understanding basic computer operations",
-                "Building foundational digital skills"
-            ],
-            technologies: ["MS Word", "MS Excel", "MS PowerPoint", "Computer Basics"]
-        }
-    ],
-    projects: [
-        {
-            id: 1,
-            title: "Drishti",
-            category: "AI / LLM",
-            technologies: "Python, PyTorch, Transformers, FastAPI, React, MongoDB",
-            image: "/images/Drishti.png",
-            description: "Bangladesh's first intelligent advanced AI chatbot powered by a custom Large Language Model. Features natural language understanding, contextual conversations, and multilingual support including Bengali.",
-            link: "https://huggingface.co/red1-for-hek/drishti-ilm-x1"
-        },
-        {
-            id: 2,
-            title: "VoteChain",
-            category: "Blockchain",
-            technologies: "Solidity, Web3.js, React, Ethereum, IPFS, MetaMask, Node.js",
-            image: "/images/VoteChain.png",
-            description: "A decentralized election system built on blockchain technology ensuring transparent, tamper-proof, and verifiable voting. Features smart contracts for vote integrity and real-time result tracking.",
-            link: "https://github.com/red1-for-hek/smart-election-by-blockchain"
-        },
-        {
-            id: 4,
-            title: "Flood Spaces 2.0",
-            category: "AI / ML",
-            technologies: "Python, TensorFlow, Pandas, React, FastAPI, GIS",
-            image: "/images/FloodSpaces.png",
-            description: "Predicts flood risks across Bangladesh up to one month in advance and sends early alerts to help people prepare.",
-            link: "https://github.com/red1-for-hek/Flood-Spaces-2.0"
-        },
-        {
-            id: 5,
-            title: "Phoenix 3.0",
-            category: "AI Assistant",
-            technologies: "Python, Speech Recognition, PyAutoGUI, OpenAI API, Tkinter",
-            image: "/images/Phoenix3.0.png",
-            description: "A JARVIS-inspired personal AI desktop assistant. Controls system functions, manages tasks, answers queries, automates workflows, and provides voice-activated computing experience.",
-            link: "https://github.com/red1-for-hek/phoenix3.0"
-        },
-        {
-            id: 6,
-            title: "RedxChess",
-            category: "AI / Game Engine",
-            technologies: "Python, C++, Neural Networks, Bitboards, UCI Protocol",
-            image: "/images/RedxChess.png",
-            description: "A high-performance chess engine rated 3640 ELO. Features advanced search algorithms, neural network evaluation, and optimized bitboard representation for lightning-fast move generation.",
-            link: "/play"
-        },
-        {
-            id: 7,
-            title: "Prodesk",
-            category: "E-commerce",
-            technologies: "React, Node.js, MongoDB, Express, Stripe",
-            image: "/images/Prodesk.png",
-            description: "A complete e-commerce platform with secure checkout and smooth product browsing.",
-            link: "https://github.com/red1-for-hek/prodesk"
-        },
-        {
-            id: 8,
-            title: "HekTools",
-            category: "Security / Android",
-            technologies: "Kotlin, Android SDK, Firebase, Python, Encryption",
-            image: "/images/hektools.png",
-            description: "An advanced Android monitoring and security research tool. Features remote device management, activity logging, and encrypted data transmission for security testing purposes.",
-            link: ""
-        }
-    ],
-    contact: {
-        email: "redoyanul1234@gmail.com",
-        github: "https://github.com/red1-for-hek",
-        linkedin: "https://linkedin.com/in/red1-for-hek",
-        twitter: "https://x.com/red_1_ul",
-        facebook: "https://www.facebook.com/redoyanulhaque.hacker.official",
-        instagram: "https://www.instagram.com/red_1_ul"
+    {
+      position: 'Frontend Developer',
+      company: 'Proyectos y autoaprendizaje',
+      period: '2025',
+      location: 'Barranquilla, Colombia',
+      description:
+        'El salto al desarrollo frontend profesional: componentes, estado y construcción de interfaces completas con React.',
+      responsibilities: [
+        'Construir interfaces completas con React y Svelte',
+        'Trabajar el HTML y el CSS con criterio propio, no solo con lo aprendido en tutoriales',
+        'Estructurar componentes reutilizables y mantener el código legible',
+      ],
+      technologies: ['React', 'Svelte', 'JavaScript', 'HTML', 'CSS'],
     },
-    skills: {
-        develop: {
-            title: "AI DEVELOPER",
-            description: "Building intelligent systems & AI solutions",
-            details: "Developing AI agents, chatbots, and machine learning models using Python, TensorFlow, and PyTorch. Specializing in LLMs, NLP, deep learning, and autonomous systems.",
-            tools: ["Python", "TensorFlow", "PyTorch", "OpenCV", "Scikit-learn", "LLMs", "NLP", "Deep Learning", "Chatbots", "AI Agents"]
-        },
-        design: {
-            title: "FULL-STACK",
-            description: "Modern web development & scalable applications",
-            details: "Building responsive and performant web applications using React, Next.js, Node.js, and databases. Creating seamless user experiences with modern UI/UX principles.",
-            tools: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "PostgreSQL", "TailwindCSS", "REST APIs", "Docker", "Git"]
-        }
-    }
-};
-
-
+    {
+      position: 'Desarrollo multiplataforma y sistemas',
+      company: 'Proyectos y autoaprendizaje',
+      period: '2026',
+      location: 'Barranquilla, Colombia',
+      description:
+        'Entrada al desarrollo móvil multiplataforma con Flutter y Dart, y al trabajo cercano al hardware con Rust.',
+      responsibilities: [
+        'Desarrollar aplicaciones móviles con Flutter y Dart',
+        'Aprender Rust y el razonamiento de bajo nivel que exige',
+        'Integrar el desarrollo web con el móvil en un mismo criterio de trabajo',
+      ],
+      technologies: ['Flutter', 'Dart', 'Rust'],
+    },
+  ],
+  // Pendiente de cargar. Los proyectos se declaran a mano, no se leen de GitHub.
+  projects: [] as Project[],
+  contact: {
+    email: 'saaarmyx@gmail.com',
+    github: 'https://github.com/Saaarmyx',
+    twitter: 'https://x.com/Saaarmyx',
+    instagram: 'https://instagram.com/Saaarmyx',
+  },
+  skills: {
+    develop: {
+      title: 'DESARROLLADOR',
+      description: 'Software, web y móvil',
+      details:
+        'Construyo software, experiencias digitales y productos tecnológicos con una visión a largo plazo. Trabajo en el frontend con React, Svelte y JavaScript; en el backend con Node.js y Python; y en móvil con Flutter y Dart. Me interesa entender cada sistema de punta a punta, desde el código hasta su comportamiento interno.',
+      tools: [
+        'React',
+        'Svelte',
+        'JavaScript',
+        'HTML',
+        'CSS',
+        'Node.js',
+        'Python',
+        'Dart',
+        'Flutter',
+      ],
+    },
+    design: {
+      title: 'DISEÑO Y ENTORNO',
+      description: 'Interfaz y herramientas de trabajo',
+      details:
+        'Diseño e interfaz son parte del trabajo, no un añadido: uso Figma e Illustrator para dar acabado a lo que construyo. El resto del día a día está en Git, GitHub, Bash, VS Code y Linux, que es donde se resuelve el grueso del trabajo real.',
+      tools: ['Figma', 'Adobe Illustrator', 'Git', 'GitHub', 'Bash', 'VS Code', 'Linux'],
+    },
+  },
+}
